@@ -1,0 +1,1 @@
+Simple repo about master detail in asp net core 2.1 using Visual Studio 2017 
