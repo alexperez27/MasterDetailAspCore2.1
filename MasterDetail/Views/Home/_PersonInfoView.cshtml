@@ -1,0 +1,40 @@
+﻿@using System.Collections.Generic;
+@using MasterDetail.Models;
+
+@model List<PersonInfo>
+
+@{
+    for (int index = 0; index < Model.Count; index++)
+    {
+        <div class="card PersonInfo_Item">
+            <input id="_index_" data-name="" name="0" hidden value="@index" />
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label>Level:</label>
+                    <select asp-for="@Model[index].Level" asp-items="ViewBag.Levels" disabled></select>
+                    <input asp-for="@Model[index].Level" data-name="Level" hidden />
+                </div>
+                <div class="col-sm-3">
+                    <label>SchoolName:</label>
+                    <label>@Model[index].SchoolName</label>
+                    <input asp-for="@Model[index].SchoolName" data-name="SchoolName" hidden />
+                </div>
+                <div class="col-sm-3">
+                    <label>Year:</label>
+                    <label>@Model[index].Year</label>
+                    <input asp-for="@Model[index].Year" data-name="Year" hidden />
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary" onclick="EditInfo(this)">
+                        Editar
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="RemoveInfo(this)">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+            <br /><br />
+        </div>
+    }
+}
+
